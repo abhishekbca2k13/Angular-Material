@@ -1,0 +1,23 @@
+BottomSheet
+The MatBottomSheet service can be used to open Material Design panels to the bottom of the screen. These panels are intended primarily as an interaction on mobile devices where they can be used as an alternative to dialogs and menus.
+	<button mat-raised-button (click)="openBottomSheet()">Open file</button>
+
+You can open a bottom sheet by calling the open method with a component to be loaded and an optional config object. The open method will return an instance of MatBottomSheetRef:
+
+	const bottomSheetRef = bottomSheet.open(SocialShareComponent, {
+  		ariaLabel: 'Share on social media'
+	});
+
+The MatBottomSheetRef is a reference to the currently-opened bottom sheet and can be used to close it or to subscribe to events. Note that only one bottom sheet can be open at a time. Any component contained inside of a bottom sheet can inject the MatBottomSheetRef as well.
+
+	bottomSheetRef.afterDismissed().subscribe(() => {
+  		console.log('Bottom sheet has been dismissed.');
+	});
+	bottomSheetRef.dismiss();
+
+Sharing data with the bottom sheet component
+If you want to pass in some data to the bottom sheet, you can do so using the data property:
+
+	const bottomSheetRef = bottomSheet.open(HobbitSheet, {
+		  data: { names: ['Frodo', 'Bilbo'] },
+	});
