@@ -1,0 +1,3 @@
+CheckBox:
+<mat-checkbox> provides the same functionality as a native <input type="checkbox"> enhanced with Material Design styling and animations.
+    <input type="checkbox"> 
