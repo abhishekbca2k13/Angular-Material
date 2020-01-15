@@ -1,0 +1,16 @@
+DatePicker:
+The datepicker allows users to enter a date either through text input, or by choosing a date from the calendar. 
+It is made up of several components and directives that work together.
+
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+Form Field
+<mat-form-field> is a component used to wrap several Angular Material components and apply common Text field styles such as the underline,
+floating label, and hint messages.
+
+In this document, "form field" refers to the wrapper component <mat-form-field> and "form field control" refers to the component that the 
+<mat-form-field> is wrapping (e.g. the input, textarea, select, etc.)
