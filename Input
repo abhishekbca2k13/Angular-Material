@@ -28,3 +28,9 @@ The following input types can be used with matInput:
 •	time
 •	url
 •	week
+
+Form field features
+There are a number of <mat-form-field> features that can be used with any <input matInput> or <textarea matInput>. These include error messages, hint text, prefix & suffix, and theming.   
+
+Placeholder
+The placeholder is text shown when the <mat-form-field> label is floating but the input is empty. It is used to give the user an additional hint about what they should type in the input. The placeholder can be specified by setting the placeholder attribute on the <input> or <textarea> element.
