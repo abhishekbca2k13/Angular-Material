@@ -1,0 +1,9 @@
+Install Angular Material
+	ng add @angular/material
+
+Installing HammerJS
+HammerJS can be installed using the following npm command:
+	 npm install --save hammerjs
+
+After installing, import it on your app's entry point (e.g. src/main.ts).
+   	import 'hammerjs';
