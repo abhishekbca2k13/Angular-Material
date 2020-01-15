@@ -1,0 +1,26 @@
+Form Field
+<mat-form-field> is a component used to wrap several Angular Material components and apply common Text field styles such as the underline, floating label, and hint messages.
+
+In this document, "form field" refers to the wrapper component <mat-form-field> and "form field control" refers to the component that the <mat-form-field> is wrapping (e.g. the input, textarea, select, etc.)
+
+The following Angular Material components are designed to work inside a <mat-form-field>:
+
+<input matNativeControl> & <textarea matNativeControl>
+<select matNativeControl>
+<mat-select>
+<mat-chip-list>
+
+Example
+<mat-form-field>
+    <input matInput placeholder="Input">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select">
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+  </mat-form-field>
