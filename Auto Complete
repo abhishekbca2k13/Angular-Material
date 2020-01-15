@@ -1,0 +1,19 @@
+Auto Complete:
+The autocomplete is a normal text input enhanced by a panel of suggested options.
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+Component class file code
+ export class AutocompleteSimpleExample {
+  myControl = new FormControl();
+  options: string[] = ['One', 'Two', 'Three'];
+}
