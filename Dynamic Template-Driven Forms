@@ -1,0 +1,159 @@
+Dynamic Template-Driven Forms 
+In Angular, there are two types of forms: template-driven forms and reactive forms.
+When you create a form control using NgModel two-way data bindings, each form control either stands on its own or, it is registered with the NgForm parent. If it is registered with the NgForm parent, the control has to have a unique "name" attribute.
+
+app.component.ts code
+// Import the core angular services.
+import { Component } from "@angular/core";
+interface Pet {
+    id: number;
+    type: string;
+    name: string;
+    age: string; // NOTE: This is a String because it is an open-ended form value.
+    isPastOn: boolean;
+}
+ 
+@Component({
+    selector: "my-app",
+    styleUrls: [ "./app.component.less" ],
+    templateUrl: "./app.component.htm"
+})
+export class AppComponent {
+    public form: {
+        pets: Pet[];
+    };
+ 
+    // I initialize the app component.
+    constructor() {
+        this.form = {
+            pets: []
+        };
+
+        // Add an initial pet form-entry.
+        this.addPet();
+    }
+ 
+    // I add a new pet record to the form-model.
+    public addPet() : void {
+ 
+        // CAUTION: When we output the form controls, we need to provide a unique name
+        // for each input (so that it can be registered with the parent NgForm). For the
+        // sake of this demo, we're going to use the current TIMPESTAMP (Date.now()) as a
+        // hook into something unique about this model.
+        this.form.pets.push({
+            id: Date.now(), // <--- uniqueness hook.
+            type: "Dog",
+            name: "",
+            age: "",
+            isPastOn: false
+        });
+    }
+ 
+    // I process the form-model.
+    public processForm( form: any ) : void {
+        console.warn( "Handling form submission!" );
+        console.group( "Form Data" );
+        console.log( this.form.pets );
+        console.groupEnd();
+        console.group( "Form Model" );
+        console.log( form );
+        console.groupEnd();
+    }
+  
+    // I remove the pet at the given index.
+    public removePet( index: number ) : void {
+        this.form.pets.splice( index, 1 );
+    }
+}
+
+app.component.html code
+<form #petsForm="ngForm" (submit)="processForm( petsForm )">
+    <h2>
+        Pets
+    </h2>
+    <ng-template ngFor let-pet [ngForOf]="form.pets" let-index="index" let-isLast="last">
+        <!--
+            NOTE: We are using the "nameControl" template variable to define our CSS
+            class. Each template variable is scoped to the template in which it was
+            defined; which means, each "nameControl" instance is scoped to the ngFor
+            loop-iteration of the given Pet model.
+        -->
+        <div
+            class="pet"
+            [class.pet--invalid]="( nameControl.touched && nameControl.invalid )">
+            <!--
+                Each form control has to have a unique "name" property so that it can be
+                registered with the parent NgForm instance (unless it is denoted as
+                "standalone"). As such, we are using attribute interpolation to give each
+                input a locally-unique name based on the model data (XXX_{{ pet.id }}).
+            -->
+            <select name="type_{{ pet.id }}" [(ngModel)]="pet.type">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
+ 
+            <!--
+                NOTE: We are defining a "nameControl" template variable that will give us
+                access to the "NgModel" instance for this form input. We are then using
+                this reference to adjust the CSS class-list on the parent container.
+            -->
+            <input
+                #nameControl="ngModel"
+                type="text"
+                name="name_{{ pet.id }}"
+                [(ngModel)]="pet.name"
+                required
+                autofocus
+                size="20"
+                placeholder="Name..."
+            />
+ 
+            <input
+                type="text"
+                name="age_{{ pet.id }}"
+                [(ngModel)]="pet.age"
+                size="10"
+                placeholder="Age..."
+            />
+ 
+            <label for="isPastOn_{{ pet.id }}">
+                <input
+                    type="checkbox"
+                    id="isPastOn_{{ pet.id }}"
+                    name="isPastOn_{{ pet.id }}"
+                    [(ngModel)]="pet.isPastOn"
+                    (keydown.tab)="( ( isLast && addPet() ) || true )"
+                />
+                Is pasted-on?
+            </label>
+ 
+            <a (click)="removePet( index )" title="Remove Pet" class="remove">
+                &times;
+            </a>
+ 
+        </div>
+ 
+    </ng-template>
+ 
+    <p class="actions">
+        <a (click)="addPet()">Add Another Pet</a>
+    </p>
+ 
+    <!--
+        Since we are [implicitly] registering each form control with the parent NgForm
+        instance, the validity of the form will be an aggregation of the individual
+        control validity. As such, we can disable the form submission if the form looks
+        invalid as a whole.
+    -->
+    <button type="submit" [disabled]="( ! petsForm.form.valid )">
+        Process Form
+    </button>
+</form>
+
+Import th FormsModule in app.module.ts file
+	import { FormsModule} from '@angular/forms'
+	
+	imports: [
+		....
+		FormsModule
+	],
