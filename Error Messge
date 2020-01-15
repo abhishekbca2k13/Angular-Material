@@ -1,0 +1,21 @@
+Error messages
+Error messages can be shown under the form field underline by adding mat-error elements inside the form field.
+If a form field can have more than one error state, it is up to the consumer to toggle which messages should be displayed. 
+This can be done with CSS, ngIf or ngSwitch. Multiple error messages can be shown at the same time if desired, but the <mat-form-field> only reserves enough space to display one error message at a time
+
+component.html file code
+<mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  
+  component.ts file code
+  export class FormFieldErrorExample {
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
+  }
+}
