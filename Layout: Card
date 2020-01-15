@@ -1,0 +1,19 @@
+Card:
+<mat-card> is a content container for text, photos, and actions in the context of a single subject.
+	<mat-card>Simple card</mat-card>
+
+Basic card sections
+The most basic card needs only an <mat-card> element with some content. However, Angular Material provides a number of preset sections 
+that you can use inside of an <mat-card>:
+
+
+Element		        	  Description
+<mat-card-title>		  Card title
+<mat-card-subtitle>		Card subtitle
+<mat-card-content>		Primary card content. Intended for blocks of text
+<img mat-card-image>	Card image. Stretches the image to the container width
+<mat-card-actions>		Container for buttons at the bottom of the card
+<mat-card-footer>		  Section anchored to the bottom of the card
+
+These elements primary serve as pre-styled content containers without any additional APIs. However, the align property on 
+<mat-card-actions> can be used to position the actions at the 'start' or 'end' of the container.
