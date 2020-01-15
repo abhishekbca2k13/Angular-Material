@@ -1,0 +1,7 @@
+Prefix & suffix
+Adding the matPrefix directive to an element inside the <mat-form-field> will designate it as the prefix. Similarly, adding matSuffix will designate it as the suffix.
+<mat-form-field>
+    <input matInput placeholder="Amount" type="number" class="example-right-align">
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
