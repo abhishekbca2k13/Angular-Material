@@ -17,3 +17,11 @@ An invert attribute is also available which can be specified to flip the axis th
 An inverted horizontal slider will have the minimum value on the right and the maximum value on the left,
 while an inverted vertical slider will have the minimum value on top and the maximum value on bottom.
 	<mat-slider invert></mat-slider>
+
+Thumb label
+By default, the exact selected value of a slider is not visible to the user. However, this value can be added to the thumb by adding the thumbLabel attribute.
+The Material Design spec recommends using the thumbLabel attribute (along with tickInterval="1") only for sliders that are used to display a discrete value (such as a 1-5 rating).
+	<mat-slider thumbLabel tickInterval="1"></mat-slider>
+
+Slide Toggel:
+	<mat-slide-toggle> is an on/off control that can be toggled via clicking or dragging.
