@@ -1,0 +1,12 @@
+Floating label
+The floating label is a text label displayed on top of the form field control when the control does not contain any text or when
+<select matNativeControl> does not show any option text. By default, when text is present the floating label floats above the form field 
+control. The label for a form field can be specified by adding a mat-label element.
+
+Hint labels
+Hint labels are additional descriptive text that appears below the form field's underline. A <mat-form-field> can have up to two hint 
+labels; one start-aligned (left in an LTR language, right in RTL), and one end-aligned.
+
+Hint labels are specified in one of two ways: either by using the hintLabel property of <mat-form-field>, or by adding a <mat-hint> 
+element inside the form field. When adding a hint via the hintLabel property, it will be treated as the start hint. 
+Hints added via the <mat-hint> hint element can be added to either side by setting the align property on <mat-hint> to either start or end. Attempting to add multiple hints to the same side will raise an error.
