@@ -1,0 +1,52 @@
+Snack Bar:
+MatSnackBar is a service for displaying snack-bar notifications.
+
+<mat-form-field>
+  	<input matInput value="Disco party!" placeholder="Message" #message>
+</mat-form-field>
+<mat-form-field>
+  	<input matInput value="Dance" placeholder="Action" #action>
+</mat-form-field>
+<button mat-button(click)="openSnackBar(message.value,action.value)">Show snack-bar</button>
+
+Opening a snack-bar
+A snack-bar can contain either a string message or a given component.
+
+// Simple message.
+let snackBarRef = snackBar.open('Message archived');
+
+// Simple message with an action.
+let snackBarRef = snackBar.open('Message archived', 'Undo');
+
+// Load the given component into the snack-bar.
+let snackBarRef = snackbar.openFromComponent(MessageArchivedComponent);
+
+In either case, a MatSnackBarRef is returned. This can be used to dismiss the snack-bar or to receive notification of when the snack-bar
+is dismissed. For simple messages with an action, the MatSnackBarRef exposes an observable for when the action is triggered. 
+If you want to close a custom snack-bar that was opened via openFromComponent, from within the component itself, you can inject 
+the MatSnackBarRef.
+
+snackBarRef.afterDismissed().subscribe(() => {
+  console.log('The snack-bar was dismissed');
+});
+snackBarRef.onAction().subscribe(() => {
+  console.log('The snack-bar action was triggered!');
+});
+snackBarRef.dismiss();
+
+Implementation:
+
+ToolTip:
+The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element.
+
+<button mat-raised-button
+        matTooltip="Info about the action"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button>
+
+
+Positioning
+The tooltip will be displayed below the element but this can be configured using the matTooltipPosition input. 
+The tooltip can be displayed above, below, left, or right of the element. By default the position will be below. 
+If the tooltip should switch left/right positions in an RTL layout direction, then the positions before and after should be used instead of left and right, respectively.
