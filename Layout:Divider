@@ -1,0 +1,11 @@
+Divider:
+<mat-divider> is a component that allows for Material styling of a line separator with various orientation options.
+A <mat-divider> element can be used on its own to create a horizontal or vertical line styled with a Material theme
+
+Inset divider
+Add the inset attribute in order to set whether or not the divider is an inset divider.
+	<mat-divider [inset]="true"></mat-divider>
+
+Vertical divider
+Add the vertical attribute in order to set whether or not the divider is vertically-oriented.
+	<mat-divider [vertical]="true"></mat-divider>
