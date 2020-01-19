@@ -1,0 +1,15 @@
+ToolTip:
+The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element.
+
+<button mat-raised-button
+        matTooltip="Info about the action"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button>
+
+
+Positioning
+The tooltip will be displayed below the element but this can be configured using the matTooltipPosition input. 
+The tooltip can be displayed above, below, left, or right of the element. By default the position will be below.
+If the tooltip should switch left/right positions in an RTL layout direction, then the positions before and after 
+should be used instead of left and right, respectively.
