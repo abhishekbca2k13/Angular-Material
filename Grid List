@@ -1,0 +1,17 @@
+Grid List:
+mat-grid-list is a two-dimensional list view that arranges cells into grid-based layout. See Material Design spec here.
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>
+Setting the number of columns
+An mat-grid-list must specify a cols attribute which sets the number of columns in the grid. The number of rows will be automatically 
+determined based on the number of columns and the number of items.
+
+
+
+Tile headers and footers
+A header and footer can be added to an mat-grid-tile using the mat-grid-tile-header and mat-grid-tile-footer elements respectively.
+
