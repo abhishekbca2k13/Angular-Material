@@ -1,0 +1,16 @@
+Button:
+Angular Material buttons are native <button> or <a> elements enhanced with Material Design styling and ink ripples.
+	<button mat-button>Click me!</button>
+
+There are several button variants, each applied as an attribute:
+Attribute		Description
+mat-button		Rectangular text button w/ no elevation
+mat-raised-button	Rectangular contained button w/ elevation
+mat-flat-button	Rectangular contained button w/ no elevation
+mat-stroked-button	Rectangular outlined button w/ no elevation
+mat-icon-button	Circular button with a transparent background, meant to contain an icon
+mat-fab		Circular button w/ elevation, defaults to theme's accent color
+mat-mini-fab		Same as mat-fab but smaller
+
+Theming
+Buttons can be colored in terms of the current theme using the color property to set the background color to primary, accent, or warn.
