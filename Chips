@@ -1,0 +1,16 @@
+Chips:
+<mat-chip-list> displays a list of values as individual, keyboard accessible, chips.
+	<mat-chip-list aria-label="Fish selection">
+		  <mat-chip>One fish</mat-chip>
+		  <mat-chip color="accent" selected>Accent fish</mat-chip>
+	</mat-chip-list>
+
+Selection
+Chips can be selected via the selected property. Selection can be disabled by setting selectable to false on the <mat-chip-list>.
+
+Whenever the selection state changes, a ChipSelectionChange event will be emitted via (selectionChange).
+
+Chip input
+The MatChipInput directive can be used together with a chip-list to streamline the interaction between the two components. 
+This directive adds chip-specific behaviors to the input element within <mat-form-field> for adding and removing chips. 
+The <input> with MatChipInput can be placed inside or outside the chip-list element.
