@@ -1,0 +1,53 @@
+Badge:
+Badges are small status descriptors for UI elements. A badge consists of a small circle, typically containing a number or other short
+set of characters, that appears in proximity to another object.
+<p>
+  <span matBadge="4" matBadgeOverlap="false">Text with a badge</span>
+</p>
+<p>
+  Button with a badge on the left
+  <button mat-raised-button color="primary"
+      matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+    Action
+  </button>
+</p>
+<p>
+  Icon with a badge
+  <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+    <!-- Include text description of the icon's meaning for screen-readers -->
+    <span class="cdk-visually-hidden">
+      Example with a home icon with overlaid badge showing the number 15
+    </span>
+</p>
+
+Badge position
+By default, the badge will be placed above after. The direction can be changed by defining the attribute matBadgePosition follow 
+by above|below and before|after.
+	<mat-icon matBadge="22" matBadgePosition="above after">home</mat-icon>
+
+The overlap of the badge in relation to its inner contents can also be defined using the matBadgeOverlap tag. Typically,
+you want the badge to overlap an icon and not a text phrase. By default it will overlap.
+
+	<h1 matBadge="11" matBadgeOverlap="false">
+ 		 Email
+	</h1>
+
+ Badge sizing
+The badge has 3 sizes: small, medium and large. By default, the badge is set to medium. You can change the size by adding 
+matBadgeSize to the host element.
+
+	<h1 matBadge="11" matBadgeSize="large">
+		  Email
+	</h1>
+ Badge visibility
+The badge visibility can be toggled programmatically by defining matBadgeHidden.
+	<h1 matBadge="11" [matBadgeHidden]="!visible">
+		  Email
+	</h1>
+
+Theming
+Badges can be colored in terms of the current theme using the matBadgeColor property to set the background color to primary, 
+accent, or warn.
+	<mat-icon matBadge="22" matBadgeColor="accent">
+ 		 home
+	</mat-icon>
