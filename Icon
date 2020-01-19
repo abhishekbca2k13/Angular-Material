@@ -1,0 +1,3 @@
+Icon:
+mat-icon makes it easier to use vector-based icons in your app. This directive supports both icon fonts and SVG icons, but not bitmap-based formats (png, jpg, etc.).
+	<mat-icon>home</mat-icon>
